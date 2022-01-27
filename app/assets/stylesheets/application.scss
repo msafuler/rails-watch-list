@@ -1,0 +1,47 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+@import "components/navbar";
+@import "pages/show";
+
+@font-face {
+   font-family: 'Nickelodeon';
+   src: url('nickelodeon.regular.ttf');
+}
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  background-image: url('image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-width: 500px;
+}
+
+body {
+  a * {
+  text-decoration: none;
+  }
+}
+
+.container, .list, .movie, .poster {
+  background: $transparent-whitish;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(155, 164, 180, 0.25);
+}

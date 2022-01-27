@@ -1,0 +1,33 @@
+<%= render './navbar' %>
+
+<div class="container">
+  <div class="banner-text">
+    <h1>Create your own watchlist</h1>
+    <button id="create_button">New list</button>
+    <%= form_for(@list) do |f| %>
+      <div class="form_field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form_field">
+        <%= f.label :poster_url %>
+        <%= f.text_field :poster_url %>
+      </div>
+      <%= f.submit "Create now!", class:"form_button" %>
+    <% end %>
+  </div>
+</div>
+<div>
+  <h4>My lists</h4>
+  <div class="lists">
+    <% @lists.each do |list| %>
+    <div class="list" <% unless list.poster_url.nil? %>
+        style="background-image: url(<%= list.poster_url %>); background-size: cover;"
+      <% end %>>
+      <h4><%= link_to list.name, list_path(list) %></h4>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'index' %>

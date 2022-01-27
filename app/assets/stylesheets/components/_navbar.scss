@@ -1,0 +1,62 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.navbar {
+background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.navbar-nav {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar *, .navbar-brand {
+  font-family: Raleway;
+  font-weight: 300;
+  color: $whitish;
+  justify-content: space-between;
+}
+
+.navbar-nav {
+  a * {
+    text-decoration: none !important;
+  }
+}
+
+.navbar-nav, .navbar {
+a:hover {
+  text-decoration: none !important;
+  color: $greyish;
+ }
+}
+
+.nav-item {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px;
+  border-color: $very-dark_blue;
+  background-color: $grey-blue;
+ }
+
+ .navbar-nav .nav-link {
+  padding: 5px 10px 5px 10px;
+  margin-right: 8px;
+ }
+
+ .fas {
+   color: $grey-blue;
+   font-size: xx-large;
+ }

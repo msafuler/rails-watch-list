@@ -1,0 +1,41 @@
+<%= render './navbar' %>
+
+<div class="banner_list" <% unless @list.poster_url.nil? %>
+    style="background-image: url(<%= @list.poster_url %>); background-size: cover;"
+  <% end %>>
+  <h1><%= @list.name %></h1>
+</div>
+
+
+ <button id="add_movie_button">Add a movie</button>
+    <%= form_for @bookmark, :url => list_bookmarks_path(@list) do |f| %>
+      <select name="movie_id" id="movie-select" class="movie-select">
+          <option value="">--Please choose a movie--</option>
+          <% @movies.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.title %></option>
+          <% end %>
+      </select>
+  <%= f.label :comment, class:"comment_field" %>
+  <%= f.text_field :comment %>
+
+      <%= f.submit "Add a movie!", class:"form_button bookmark_movie_button" %>
+    <% end %>
+
+
+<div class="movies">
+    <% @list.movies.each do |movie| %>
+    <div class="movie">
+      <img class="poster" src="<%= movie.poster_url %>" alt="movie_poster" />
+    <h4><%= movie.title %> * <%= movie.rating %></h4>
+    <p><%= movie.overview %></p>
+    <% unless movie.bookmarks.first.nil? %>
+      <span class="review">&ldquo; <%= movie.bookmarks.first.comment %></span>
+    <% end %>
+    <%= link_to "Delete", list_bookmark_path(@list, movie.bookmarks.first), class:"delete_link", method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <% end %>
+</div>
+
+
+
+<%= javascript_pack_tag 'show' %>
